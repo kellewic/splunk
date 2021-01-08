@@ -1,0 +1,8 @@
+nameContainerSizeMB  volumename                                 numreplicas  quota     volumeid   mountdir                                        used
+0                    user1                                     3            3072      201309909  /home/user1                                0
+502                  user2                                     3            3072      116423739  /home/user2                                1651
+0                    user3                                    3            3072      21959313   /home/user3                               0
+0                    user4                                     3            3072      209251662  /home/user4                                0
+90                   user5                                   3            3072      252590207  /home/user5                              658
+0                    user6                                   3            3072      151139781  /home/user6                              0
+1404                 user7                                   3            3072      128671663  /home/user7                              1345

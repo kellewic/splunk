@@ -1,0 +1,8 @@
+ListSPs resp: status 0:4
+No. of SPs (4), totalsize 20841052 MB, totalfree 17671172 MB
+ 
+SP 0: name SP1, Online, size 5438942 MB, free 4519126 MB, path /dev/sdb, log 200 MB, guid 5c6ec2865bb74c5c00548f5ccc06f1ab, clusterUuid -4629451791401737313--1762040477455662877, disks /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf /dev/sdg
+SP 1: name SP2, Online, size 5438942 MB, free 4660510 MB, path /dev/sdh, log 200 MB, guid a883bef8d4214bee00548f5ccd04e67d, clusterUuid -4629451791401737313--1762040477455662877, disks /dev/sdh /dev/sdi /dev/sdj /dev/sdk /dev/sdl /dev/sdm
+SP 2: name SP3, Online, size 5438942 MB, free 4646095 MB, path /dev/sdn, log 200 MB, guid 967b16b3a88555ac00548f5cce039537, clusterUuid -4629451791401737313--1762040477455662877, disks /dev/sdn /dev/sdo /dev/sdp /dev/sdq /dev/sdr /dev/sds
+SP 3: name SP4, Online, size 4524223 MB, free 3845439 MB, path /dev/sdt, log 200 MB, guid d533a7b62770563a00548f5ccf0139e2, clusterUuid -4629451791401737313--1762040477455662877, disks /dev/sdt /dev/sdu /dev/sdv /dev/sdw /dev/sdx
+

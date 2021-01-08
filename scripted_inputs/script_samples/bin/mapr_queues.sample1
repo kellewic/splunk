@@ -1,0 +1,37 @@
+======================
+Queue Name : root.abcde
+Queue State : running 
+Scheduling Info : Capacity: 0.0, MaximumCapacity: UNDEFINED, CurrentCapacity: 0.0 
+======================
+Queue Name : root.admin 
+Queue State : running 
+Scheduling Info : Capacity: 0.0, MaximumCapacity: UNDEFINED, CurrentCapacity: 0.0 
+======================
+Queue Name : root.aff 
+Queue State : running 
+Scheduling Info : Capacity: 0.0, MaximumCapacity: UNDEFINED, CurrentCapacity: 0.0 
+======================
+Queue Name : root.fght
+Queue State : running 
+Scheduling Info : Capacity: 0.0, MaximumCapacity: UNDEFINED, CurrentCapacity: 0.0 
+======================
+Queue Name : root.seed
+Queue State : running 
+Scheduling Info : Capacity: 0.0, MaximumCapacity: UNDEFINED, CurrentCapacity: 0.0 
+======================
+Queue Name : root.scale 
+Queue State : running 
+Scheduling Info : Capacity: 0.0, MaximumCapacity: UNDEFINED, CurrentCapacity: 0.0 
+======================
+Queue Name : root.auth
+Queue State : running 
+Scheduling Info : Capacity: 0.0, MaximumCapacity: UNDEFINED, CurrentCapacity: 0.0 
+======================
+Queue Name : root.authvar 
+Queue State : running 
+Scheduling Info : Capacity: 0.0, MaximumCapacity: UNDEFINED, CurrentCapacity: 0.0 
+======================
+Queue Name : root.batch
+Queue State : running 
+Scheduling Info : Capacity: 0.0, MaximumCapacity: UNDEFINED, CurrentCapacity: 0.0 
+

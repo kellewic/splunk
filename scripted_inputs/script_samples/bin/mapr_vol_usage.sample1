@@ -1,0 +1,8 @@
+quota     mountdir                                                nameContainerSizeMB  numreplicas  volumeid   used      volumename                       
+307200    /mountdir/abcde                                        110                  3            119699241  58273     abcde                           
+7340032   /mountdir/melon                                      3585                 3            217587180  2535980   melon                         
+52428800  /mountdir/admin                                              21123                3            81922276   2499066   admin                            
+512000    /mountdir/plat/scale                                   1                    3            62220325   0         scale                          
+5242880   /mountdir/work                                        5785                 3            110249407  4037767   work                          
+2097152   /mountdir/auth                                        46                   3            81090741   263561    auth                          
+5242880   /mountdir/authvar                                        858                  3            154557776  2419435   authvar                          

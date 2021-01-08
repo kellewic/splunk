@@ -1,0 +1,27 @@
+Filesystem            1K-blocks     Used  Available Use% Mounted on
+/dev/mapper/vg_base-lv_root
+                      100660656  3316532   92224124   4% /
+tmpfs                 132248200        0  132248200   0% /dev/shm
+/dev/sda1                487652   199145     262907  44% /boot
+/dev/mapper/vg_base-lv_data
+                     1767314308 51626652 1625906616   4% /data
+/dev/mapper/vg_base-lv_home
+                        9964080   179592    9271672   2% /home
+/dev/mapper/vg_base-lv_logs
+                      100660656    61044   95479612   1% /logs
+/dev/mapper/vg_base-lv_opt
+                      403042160 24245560  358316600   7% /opt
+/dev/mapper/vg_base-lv_tmp
+                      100660656 30796584   64744072  33% /tmp
+/dev/mapper/vg_base-lv_var
+                      100660656 36210456   59330200  38% /var
+/dev/mapper/vg01-root
+                      9.6G  5.6G  3.5G  62% /
+/dev/mapper/vg02-data
+                      492G  125G  343G  27% /data
+/dev/mapper/vg01-home
+                      9.6G   23M  9.0G   1% /home
+/dev/mapper/vg01-opt   20G  4.3G   15G  23% /opt
+/dev/mapper/vg01-tmp  2.0G  3.6M  1.9G   1% /tmp
+/dev/mapper/vg01-var  4.8G  606M  3.9G  14% /var
+

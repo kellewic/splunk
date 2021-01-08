@@ -1,0 +1,7 @@
+nameContainerSizeMB  volumename                                 numreplicas  quota     volumeid   mountdir                                        used      
+3                    abcde                                     3            307200    117518537  /abcde                                3         
+12862                admin                                      3            47185920  53309615   /admin                                      13625295  
+8                    advant                                    3            5242880   61747628   /advant                                7         
+1                    aero                                   3            204800    228568956  /aero                               0         
+0                    xyzas                                     3            1048576   115155890  /xyzas                                     0         
+13402                dev                                  3            11010048  20603107   /dev                                  9694503   

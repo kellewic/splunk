@@ -1,0 +1,2 @@
+localhost:/mapr/platform/abc /data/abc nfs rw,relatime,vers=3,rsize=131072,wsize=131072,namlen=255,soft,nolock,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=127.0.0.1,mountvers=3,mountport=2049,mountproto=udp,local_lock=all,addr=127.0.0.1 0 0
+localhost:/mapr/idiu /idiu nfs rw,relatime,vers=3,rsize=131072,wsize=131072,namlen=255,soft,nolock,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=127.0.0.1,mountvers=3,mountport=2049,mountproto=udp,local_lock=all,addr=127.0.0.1 0 0
