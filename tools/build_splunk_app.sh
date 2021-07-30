@@ -130,6 +130,11 @@ echo "Changing file perms to 0600 and directory perms to 0700"
 find "$APP_SRC_DIR" -type f -exec chmod 600 {} \;
 find "$APP_SRC_DIR" -type d -exec chmod 700 {} \;
 
+## Remove all .pyc and .pyo files
+find "$APP_SRC_DIR" -type f -name *.pyc -delete
+find "$APP_SRC_DIR" -type f -name *.pyo -delete
+find "$APP_SRC_DIR" -type d -name __pycache__ -delete
+
 ## Validate app
 echo "Validating app with SLIM"
 SLIM="$(which slim)"
