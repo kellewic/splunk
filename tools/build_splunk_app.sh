@@ -93,34 +93,6 @@ SPLUNK_APPS="$SPLUNK_ETC/apps"
 ## Set directory to install app in SPLUNK_HOME
 APP_DST_DIR="$SPLUNK_APPS/$(basename $APP_SRC_DIR)"
 
-## Minify all CSS and JS files
-UGLIFY_CSS="$(which uglifycss)"
-UGLIFY_JS="$(which uglifyjs)"
-CSS_FILES_DIR="$APP_SRC_DIR/appserver/static"
-JS_FILES_DIR="$APP_SRC_DIR/appserver/static"
-
-## TODO: Pass in as args
-CSS_FILES_ARR=(
-    "driver.min.css"
-    "_dashboard.css"
-)
-JS_FILES_ARR=(
-    "_dashboard.js"
-)
-
-echo "Minifying dashboard.css and dashboard.js"
-
-cat /dev/null > "$CSS_FILES_DIR/dashboard.css"
-cat /dev/null > "$JS_FILES_DIR/dashboard.js"
-
-for f in "${CSS_FILES_ARR[@]}"; do
-    $UGLIFY_CSS "$CSS_FILES_DIR/$f" >> "$CSS_FILES_DIR/dashboard.css"
-done
-
-for f in "${JS_FILES_ARR[@]}"; do
-    $UGLIFY_JS "$JS_FILES_DIR/$f" -c >> "$JS_FILES_DIR/dashboard.js"
-done
-
 ## Change owner to root on all files and directories
 echo "Setting ownership to 'root:root' for all files and directories"
 chown -R 0.0 "$APP_SRC_DIR"
