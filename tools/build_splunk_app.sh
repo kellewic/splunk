@@ -132,7 +132,7 @@ if [ "$APP_DST_DIR" != "$SPLUNK_APPS" -a "$(dirname "$APP_DST_DIR")" == "$SPLUNK
     ## Install package to Splunk apps directory
     echo "Installing $(basename $SLIM_PACKAGE) to $APP_DST_DIR"
     rm -rf $APP_DST_DIR
-    tar -C $SPLUNK_APPS --checkpoint=90 --checkpoint-action=dot -zxf $SLIM_PACKAGE
+    tar -C $SPLUNK_APPS -zxf $SLIM_PACKAGE
 
     echo "Changing owner to '${SPLUNK_USR}:${SPLUNK_GRP}' for $APP_DST_DIR"
     chown -R ${SPLUNK_USR}:${SPLUNK_GRP} $APP_DST_DIR
