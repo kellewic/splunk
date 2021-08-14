@@ -90,8 +90,12 @@ SPLUNK_APPS="$SPLUNK_ETC/apps"
 ## Check Splunk app source directory
 [ -z "$APP_SRC_DIR" ] && echo -e "${RED}REQUIRED${CLR}: --app-src-dir=SPLUNK_APP_SRC_DIR\n" && exit 1
 
+## Source directory without app name
+APP_SRC_ROOT_DIR="$(dirname $APP_SRC_DIR)"
+
 ## Set directory to install app in SPLUNK_HOME
-APP_DST_DIR="$SPLUNK_APPS/$(basename $APP_SRC_DIR)"
+APP_DIR="$(basename $APP_SRC_DIR)"
+APP_DST_DIR="$SPLUNK_APPS/$APP_DIR"
 
 ## Change owner to root on all files and directories
 echo "Setting ownership to 'root:root' for all files and directories"
@@ -118,8 +122,13 @@ if [ $? == 1 ]; then
 fi
 
 ## Package app
-echo "Packaging app with SLIM"
+echo "Packaging app"
+## Use slim so we can get the tarball name
 SLIM_PACKAGE="$($SLIM package $APP_SRC_DIR 2>&1 | grep "exported to" | sed 's/^.*exported to \"\(.*\)\"/\1/')"
+APP_TARBALL="$(basename $SLIM_PACKAGE)"
+rm -f $APP_TARBALL
+## Use tar for final packaging since slim has no way to exclude specific files
+tar -zcf $APP_TARBALL --exclude=.git* --exclude=.slimignore --exclude=test.sh -C $APP_SRC_ROOT_DIR $APP_DIR
 
 if [ $RUN_APP_INSPECT == "1" ]; then
     echo "Running app-inspect"
@@ -130,7 +139,7 @@ fi
 ## Safety precaution checks
 if [ "$APP_DST_DIR" != "$SPLUNK_APPS" -a "$(dirname "$APP_DST_DIR")" == "$SPLUNK_APPS" ]; then
     ## Install package to Splunk apps directory
-    echo "Installing $(basename $SLIM_PACKAGE) to $APP_DST_DIR"
+    echo "Installing $APP_TARBALL to $APP_DST_DIR"
     rm -rf $APP_DST_DIR
     tar -C $SPLUNK_APPS -zxf $SLIM_PACKAGE
 
