@@ -1,0 +1,27 @@
+{
+  "serverclass_name": "jobs-hf",
+
+  "serverclass_comment": "ACTIVE HFs FOR JOB SCRIPTS",
+
+  "serverclass_options": [
+    "machineTypesFilter = linux-x86_64"
+  ],
+
+  "whitelist": [
+    "hf1",
+    "hf2",
+    "hf1*"
+  ],
+
+  "serverclass_apps": [
+    ## job data collector
+    "jobs-hf"
+  ],
+
+  "serverclass_apps_options": {
+    "jobs-hf": [
+        "restartSplunkd = true"
+    ]
+  }
+}
+

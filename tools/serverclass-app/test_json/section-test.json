@@ -1,0 +1,15 @@
+## This file is for testing
+{
+  "section_comment": "SPLUNK INFRASTRUCTURE CONFIGURATIONS",
+  ## This is the serverclass configuration
+  "serverclasses": [
+## Test comment or removal
+    "splunk-utility",
+    "cluster-master",
+    ## Heavy_forwarders
+    "hfs",
+    "active-hf",
+    "jobs-hf"  ## some stuff here
+  ]
+}
+

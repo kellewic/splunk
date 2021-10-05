@@ -1,0 +1,8 @@
+{
+  "section_comment": "SPLUNK CONFIGURATIONS",
+  "serverclasses": [
+    "cluster-master",
+    "hfs"
+  ]
+}
+

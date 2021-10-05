@@ -1,0 +1,15 @@
+{
+  "serverclass_name": "splunk-utility",
+
+  "serverclass_comment": "SPLUNK UTILITY NODE",
+
+  "whitelist": [
+    "utility-node*"
+  ],
+
+  "serverclass_apps": [
+    "splunk-uf",
+    "mysql"
+  ]
+}
+

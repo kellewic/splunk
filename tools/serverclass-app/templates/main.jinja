@@ -1,0 +1,43 @@
+{# Adds comment to block. Default is 78 hash marks. #}
+{%- macro comment(text, fill=78) -%}
+    {% if text %}
+        {{- "{:#<{fill}}\n".format("#", fill=fill) }}
+        {{- "## {}".format(text) | wordwrap(width=fill, wrapstring="\n## ") }}
+        {{- "\n{:#<{fill}}".format("#", fill=fill) }}
+    {% endif %}
+{%- endmacro -%}
+
+{# Creates the serverclass and serverclass:app stanzas #}
+{%- macro serverclass(options) -%}
+	{{- comment(options.section_comment) }}
+    {% for sc in options.serverclasses -%}
+        {{- comment(sc.serverclass_comment, 39) -}}
+
+        [serverClass:{{ sc.serverclass_name }}]
+        {% if sc.serverclass_options is defined %}
+            {{- sc.serverclass_options | join("\n") }}
+        {% endif %}
+        {% for item in sc.blacklist|sort -%}
+            blacklist.{{ loop.index0 }} = {{ item }}
+        {% endfor %}
+        {% for item in sc.whitelist|sort -%}
+            whitelist.{{ loop.index0 }} = {{ item }}
+        {% endfor %}
+
+        {% for app_name in sc.serverclass_apps -%}
+            [serverClass:{{ sc.serverclass_name }}:app:{{ app_name }}]
+            {% if sc.serverclass_apps_options is defined and sc.serverclass_apps_options[app_name] is defined %}
+                {{- sc.serverclass_apps_options[app_name] | join("\n") }}
+            {% endif %}
+        {% endfor %}
+
+    {% endfor %}
+{%- endmacro -%}
+
+{# build serverclass config file #}
+{%- include "global.jinja" ignore missing %}
+
+{% for section in sections -%}
+    {{ serverclass(section) }}
+{% endfor -%}
+

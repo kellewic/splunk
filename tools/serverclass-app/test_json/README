@@ -1,0 +1,2 @@
+Files can either have a .json extension or leave it off - both are checked.
+While the files are processed as JSON, you can embed comments with '#'.

@@ -1,0 +1,22 @@
+{
+  "serverclass_name": "hfs",
+
+  "serverclass_comment": "HEAVY FORWARDERS",
+
+  "whitelist": [
+    "hf1",
+    "hf2"
+  ],
+
+  "serverclass_apps": [
+    ## outputs.conf
+    "all-forwarders-hf",
+    ## overrides to server configurations
+    "hf-server-config",
+    ## Custom Python modules
+    "python-modules",
+    ## HTTP EVENT COLLECTOR
+    "splunk_httpinput"
+  ]
+}
+

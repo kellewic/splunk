@@ -1,0 +1,3 @@
+[submodule "tools/serverclass-app/jinja"]
+	path = tools/serverclass-app/jinja
+	url = https://github.com/pallets/jinja.git

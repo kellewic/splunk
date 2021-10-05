@@ -1,0 +1,16 @@
+{
+  "serverclass_name": "cluster-master",
+
+  "serverclass_comment": "SPLUNK CLUSTER MASTER",
+
+  "whitelist": [
+    "cluster-master*"
+  ],
+
+  "serverclass_apps": [
+    "cluster-master",
+    "meta_woot",
+    "cluster-master-mysql-mon"
+  ]
+}
+

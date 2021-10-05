@@ -1,0 +1,27 @@
+{
+  "serverclass_name": "active-hf",
+
+  "serverclass_comment": "ACTIVE HF: meaning it is running the bulk of the processing since these servers are fairly large.",
+
+  "whitelist": [
+    "hf1*"
+  ],
+
+  "blacklist": [
+    "hf10"
+  ],
+
+  "serverclass_apps": [
+    ## TA-EMC-XtremIO TA for storage data collection
+    "TA-EMC-XtremIO",
+    ## Cisco UCS TA for data collection
+    "Splunk_TA_cisco-ucs",
+    ## JIRA data collection
+    "jira-hf",
+    ## Hadoop cluster configurations and schedules
+    "yarn-collector-hf"
+    ## Puppet Enterprise TA collector
+    ##"SplunkTAforPuppetEnterprise"
+  ]
+}
+
