@@ -6,6 +6,8 @@ SPLUNK_HOME="/opt/splunk"
 APP_SRC_DIR=""
 ## Base directory in SPLUNK_HOME/etc/apps where the app is located
 APP_DST_DIR=""
+## Location of a local directory structure to copy into the APP_DST_DIR
+APP_LOCAL_DIR=""
 ## Whether to run app-inspect or not
 RUN_APP_INSPECT="0"
 ## User to chown APP_DST_DIR to
@@ -20,7 +22,7 @@ if [[ $? -ne 4 ]]; then
 fi
 
 OPTIONS=
-LONGOPTIONS=app-src-dir:,splunk-home:,app-inspect:,splunk-user:,splunk-group:
+LONGOPTIONS=app-src-dir:,app-local-dir:,splunk-home:,app-inspect:,splunk-user:,splunk-group:
 
 PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTIONS --name "$0" -- "$@")
 if [[ $? -ne 0 ]]; then
@@ -32,6 +34,10 @@ while true; do
     case "$1" in
         --app-src-dir)
             APP_SRC_DIR="$2"
+            shift 2
+            ;;
+        --app-local-dir)
+            APP_LOCAL_DIR="${2%/}"
             shift 2
             ;;
         --splunk-home)
@@ -90,6 +96,9 @@ SPLUNK_APPS="$SPLUNK_ETC/apps"
 ## Check Splunk app source directory
 [ -z "$APP_SRC_DIR" ] && echo -e "${RED}REQUIRED${CLR}: --app-src-dir=SPLUNK_APP_SRC_DIR\n" && exit 1
 
+## Check app local dir
+[ ! -z "$APP_LOCAL_DIR" -a ! -d "$APP_LOCAL_DIR" ] && echo -e  "${RED}FAILED${CLR}: $APP_LOCAL_DIR is not valid\n" && exit 1
+
 ## Source directory without app name
 APP_SRC_ROOT_DIR="$(dirname $APP_SRC_DIR)"
 
@@ -142,6 +151,12 @@ if [ "$APP_DST_DIR" != "$SPLUNK_APPS" -a "$(dirname "$APP_DST_DIR")" == "$SPLUNK
     echo "Installing $APP_TARBALL to $APP_DST_DIR"
     rm -rf $APP_DST_DIR
     tar -C $SPLUNK_APPS -zxf $SLIM_PACKAGE
+
+    ## Copy in local directory if it was specified
+    if [ ! -z "$APP_LOCAL_DIR" ]; then
+        echo "Copying $APP_LOCAL_DIR to $APP_DST_DIR"
+        cp -R "$APP_LOCAL_DIR" "$APP_DST_DIR/"
+    fi
 
     echo "Changing owner to '${SPLUNK_USR}:${SPLUNK_GRP}' for $APP_DST_DIR"
     chown -R ${SPLUNK_USR}:${SPLUNK_GRP} $APP_DST_DIR
